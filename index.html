@@ -83,38 +83,22 @@ tr {
 						<ul>
 							<li>
 								<a href="#section-underline-1">
-									<span>Realizado</span>
-								</a>
-							</li>
-							<li>
-								<a href="#section-underline-2">
-									<span>Previsto</span>
-								</a>
-							</li>
-							<li>
-								<a href="#section-underline-3">
 									<span>Status</span>
 								</a>
 							</li>
 							<li>
-								<a href="#section-underline-4">
-									<span>Cronograma</span>
+								<a href="#section-underline-2">
+									<span>Realizado</span>
 								</a>
 							</li>
 							<li>
-								<a href="#section-underline-5">
-									<span>Recursos</span>
-								</a>
-							</li>
-							<li>
-								<a href="#section-underline-6">
-									<span>Riscos</span>
+								<a href="#section-underline-3">
+									<span>Previsto</span>
 								</a>
 							</li>
 						</ul>
 					</nav>
-					<div class="content-wrap">
-						<section id="section-underline-1">
+
 <!-- Styles -->
 <style>
 #chartdiv {
@@ -308,196 +292,34 @@ chart.cursor = new am4charts.RadarCursor();
 // end am4core.ready()
 </script>
 
-<style>
-#chartdiv2 {
-  width: 100%;
-  height: 1000px;
-}
-
-</style>
-
-<!-- Resources -->
-<script src="https://www.amcharts.com/lib/4/core.js"></script>
-<script src="https://www.amcharts.com/lib/4/charts.js"></script>
-<script src="https://www.amcharts.com/lib/4/plugins/timeline.js"></script>
-<script src="https://www.amcharts.com/lib/4/plugins/bullets.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-
-<!-- Chart code -->
-<script>
-am4core.ready(function() {
-
-// Themes begin
-am4core.useTheme(am4themes_animated);
-// Themes end
-
-var chart = am4core.create("chartdiv", am4plugins_timeline.SpiralChart);
-//chart.curveContainer.padding(20,20,20,20);
-chart.levelCount = 2;
-chart.yAxisRadius = am4core.percent(25);
-chart.yAxisInnerRadius = am4core.percent(-25);
-chart.startAngle = -90;
-
-var colorSet = new am4core.ColorSet();
-
-chart.data = [ {
-  "category": "Module #1",
-  "start": "2016-01-10",
-  "end": "2016-01-13",
-  "color": colorSet.getIndex(0),
-  "task": "Gathering requirements"
-}, {
-  "category": "Module #1",
-  "start": "2016-02-05",
-  "end": "2016-04-18",
-  "color": colorSet.getIndex(0),
-  "task": "Development"
-}, {
-  "category": "Module #2",
-  "start": "2016-01-08",
-  "end": "2016-01-10",
-  "color": colorSet.getIndex(5),
-  "task": "Gathering requirements"
-}, {
-  "category": "Module #2",
-  "start": "2016-01-12",
-  "end": "2016-01-15",
-  "color": colorSet.getIndex(5),
-  "task": "Producing specifications"
-}, {
-  "category": "Module #2",
-  "start": "2016-01-16",
-  "end": "2016-02-05",
-  "color": colorSet.getIndex(5),
-  "task": "Development"
-}, {
-  "category": "Module #2",
-  "start": "2016-02-10",
-  "end": "2016-02-18",
-  "color": colorSet.getIndex(5),
-  "task": "Testing and QA"
-}, {
-  "category": "",
-  "task": ""
-},{
-  "category": "Module #3",
-  "start": "2016-01-01",
-  "end": "2016-01-19",
-  "color": colorSet.getIndex(9),
-  "task": "Gathering requirements"
-}, {
-  "category": "Module #3",
-  "start": "2016-02-01",
-  "end": "2016-02-10",
-  "color": colorSet.getIndex(9),
-  "task": "Producing specifications"
-}, {
-  "category": "Module #3",
-  "start": "2016-03-10",
-  "end": "2016-04-15",
-  "color": colorSet.getIndex(9),
-  "task": "Development"
-}, {
-  "category": "Module #3",
-  "start": "2016-04-20",
-  "end": "2016-04-30",
-  "color": colorSet.getIndex(9),
-  "task": "Testing and QA"
-}, {
-  "category": "Module #4",
-  "start": "2016-01-15",
-  "end": "2016-02-12",
-  "color": colorSet.getIndex(15),
-  "task": "Gathering requirements"
-},{
-  "category": "Module #4",
-  "start": "2016-02-25",
-  "end": "2016-03-10",
-  "color": colorSet.getIndex(15),
-  "task": "Development"
-}, {
-  "category": "Module #4",
-  "start": "2016-03-23",
-  "end": "2016-04-29",
-  "color": colorSet.getIndex(15),
-  "task": "Testing and QA"
-} ];
-
-chart.dateFormatter.dateFormat = "dd-MM-yyyy";
-chart.dateFormatter.inputDateFormat = "dd-MM-yyyy";
-chart.fontSize = 11;
-
-var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
-categoryAxis.dataFields.category = "category";
-categoryAxis.renderer.grid.template.disabled = true;
-categoryAxis.renderer.labels.template.paddingRight = 25;
-categoryAxis.renderer.minGridDistance = 10;
-categoryAxis.renderer.innerRadius = -60;
-categoryAxis.renderer.radius = 60;
-categoryAxis.renderer.labels.template.disabled = true;
-
-var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-dateAxis.renderer.minGridDistance = 70;
-dateAxis.baseInterval = { count: 1, timeUnit: "day" };
-dateAxis.renderer.tooltipLocation = 0;
-dateAxis.startLocation = -0.5;
-dateAxis.renderer.line.strokeDasharray = "1,4";
-dateAxis.renderer.line.strokeOpacity = 0.7;
-dateAxis.tooltip.background.fillOpacity = 0.2;
-dateAxis.tooltip.background.cornerRadius = 5;
-dateAxis.tooltip.label.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
-dateAxis.tooltip.label.paddingTop = 7;
-
-var labelTemplate = dateAxis.renderer.labels.template;
-labelTemplate.verticalCenter = "middle";
-labelTemplate.fillOpacity = 0.7;
-labelTemplate.background.fill = new am4core.InterfaceColorSet().getFor("background");
-labelTemplate.background.fillOpacity = 1;
-labelTemplate.padding(7,7,7,7);
-
-var series1 = chart.series.push(new am4plugins_timeline.CurveColumnSeries());
-series1.columns.template.height = am4core.percent(20);
-series1.columns.template.tooltipText = "{task}: [bold]{openDateX}[/] - [bold]{dateX}[/]";
-
-series1.dataFields.openDateX = "start";
-series1.dataFields.dateX = "end";
-series1.dataFields.categoryY = "category";
-series1.columns.template.propertyFields.fill = "color"; // get color from data
-series1.columns.template.propertyFields.stroke = "color";
-series1.columns.template.strokeOpacity = 0;
-
-var bullet = new am4charts.CircleBullet();
-series1.bullets.push(bullet);
-bullet.circle.radius = 3;
-bullet.circle.strokeOpacity = 0;
-bullet.propertyFields.fill = "color";
-bullet.locationX = 0;
-
-var bullet2 = new am4charts.CircleBullet();
-series1.bullets.push(bullet2);
-bullet2.circle.radius = 3;
-bullet2.circle.strokeOpacity = 0;
-bullet2.propertyFields.fill = "color";
-bullet2.locationX = 1;
-
-chart.scrollbarX = new am4core.Scrollbar();
-chart.scrollbarX.align = "center"
-chart.scrollbarX.width = am4core.percent(70);
-
-var cursor = new am4plugins_timeline.CurveCursor();
-chart.cursor = cursor;
-cursor.xAxis = dateAxis;
-cursor.yAxis = categoryAxis;
-cursor.lineY.disabled = true;
-cursor.lineX.strokeDasharray = "1,4";
-cursor.lineX.strokeOpacity = 1;
-
-dateAxis.renderer.tooltipLocation2 = 0;
-categoryAxis.cursorTooltipEnabled = false;
-
-}); // end am4core.ready()
-</script>
-
+<div class="content-wrap">
+						<section id="section-underline-1">
+	<div id="imgdiv">
+		<img src="images/indicadores.png" style="width:250px">
+	</div>
+	<div id="chartdiv"></div>
+	<div class="pricing pricing--jinpa">
+                <div class="pricing__item">
+                    <h2 class="pricing__title">Set/2019</h2>
+<div class="box bg-3">
+<a class="button button--tamaya button--round-s button--text-thick button--border-thin" data-text="Download" href="https://github.com/pi-digital/monitoramento/blob/master/docs/Plano%20PI%20Digital%20-%20Status%20Report%20(set-2019).xlsx" download><span>Status Report</span></a>
+            </div>
+	         </div>
+                <div class="pricing__item">
+                    <h2 class="pricing__title">Out/2019</h2>
+<div class="box bg-3">
+<a class="button button--tamaya button--round-s button--text-thick button--border-thin" data-text="Download" href="https://github.com/pi-digital/monitoramento/blob/master/docs/Plano%20PI%20Digital%20-%20Status%20Report%20(out-2019).xlsx" download><span>Status Report</span></a></button>
+            </div>
+	         </div>
+                <div class="pricing__item">
+                    <h2 class="pricing__title">Nov/2019</h2>
+<div class="box bg-3">
+<a class="button button--tamaya button--round-s button--text-thick button--border-thin" data-text="Download" href="https://github.com/pi-digital/monitoramento/blob/master/docs/Plano%20PI%20Digital%20-%20Status%20Report%20(nov-2019).xlsx" download><span>Status Report</span></a></button>
+            </div>
+	         </div>
+		        </div>
+					</section>
+					<section id="section-underline-2">
 <table>
   <tr>
     <td><tx>05/09/2019</tx></td>
@@ -533,74 +355,13 @@ categoryAxis.cursorTooltipEnabled = false;
   </tr>
 </table>
 						</section>
-						<section id="section-underline-2">
+						<section id="section-underline-3">
 <table>
   <tr>
     <td><tx>05/12/2019</tx></td>
     <td><p>Redesenho do Portal do INPI<br>(ref. Entrega #09)</p></td>
   </tr>
 </table>
-						</section>
-						<section id="section-underline-3">
-	<div id="imgdiv">
-		<img src="images/indicadores.png" style="width:250px">
-	</div>
-	<div id="chartdiv"></div>
-	<div class="pricing pricing--jinpa">
-                <div class="pricing__item">
-                    <h2 class="pricing__title">Set/2019</h2>
-<div class="box bg-3">
-<a class="button button--tamaya button--round-s button--text-thick button--border-thin" data-text="Download" href="https://github.com/pi-digital/monitoramento/blob/master/docs/Plano%20PI%20Digital%20-%20Status%20Report%20(set-2019).xlsx" download><span>Status Report</span></a>
-            </div>
-	         </div>
-                <div class="pricing__item">
-                    <h2 class="pricing__title">Out/2019</h2>
-<div class="box bg-3">
-<a class="button button--tamaya button--round-s button--text-thick button--border-thin" data-text="Download" href="https://github.com/pi-digital/monitoramento/blob/master/docs/Plano%20PI%20Digital%20-%20Status%20Report%20(out-2019).xlsx" download><span>Status Report</span></a></button>
-            </div>
-	         </div>
-                <div class="pricing__item">
-                    <h2 class="pricing__title">Nov/2019</h2>
-<div class="box bg-3">
-<a class="button button--tamaya button--round-s button--text-thick button--border-thin" data-text="Download" href="https://github.com/pi-digital/monitoramento/blob/master/docs/Plano%20PI%20Digital%20-%20Status%20Report%20(nov-2019).xlsx" download><span>Status Report</span></a></button>
-            </div>
-	         </div>
-		        </div>
-					</section>
-						<section id="section-underline-4">
-							<div id="chartdiv"></div>
-							<div class="box bg-3">
-								<a class="button button--tamaya button--round-s button--text-thick button--border-thin" data-text="Download" href="https://github.com/pi-digital/monitoramento/raw/master/docs/Plano%20PI%20Digital%20-%20Cronograma.xlsx" download><span>Cronograma</span></a></button>
-							</div>
-						</section>
-						<section id="section-underline-5">
-							<p>À vista das restrições de recursos humanos do INPI, foi identificada a necessidade da ampliação da capacidade de produção que habilite o Instituto a promover as entregas estratégicas previstas no Plano PI Digital. Nesse sentido, a alocação de profissionais com perfil técnico qualificado, para apoio no desenvolvimento de soluções de automação, constitui premissa de primeira ordem para o tempestivo e adequado cumprimento das ações de transformação digital do Plano.</p>
-							<p>No período de 7 de outubro a 1º de novembro de 2019, a partir do processo seletivo instaurado pela Secretaria de Governo Digital, foram recebidos 28 (vinte e oito) currículos de candidatos interessados ao desempenho de atividades relacionadas a:</p>
-							<h5>Análise / Desenvolvimento de Sistema (3 vagas)<br>
-							Arquitetura de Software (1 vaga)<br>
-							Experiência com o Usuário (UX) (1 vaga)<br>
-							Gestão de Processos (1 vaga)</h5>
-							<p>Os participantes do certame apresentaram os seguintes órgãos ou entes públicos de procedência:</p>
-							<h5>Casa da Moeda do Brasil (10)<br>
-							BB Tecnologia e Serviços (5)<br>
-							Infraero (4)<br>
-							Instituto Brasileiro de Geografia e Estatística - IBGE (2)<br>
-							Nuclebras Equipamentos Pesados (1)<br>
-							Instituto Federal de Ciência e Tecnologia do Rio de Janeiro (1)<br>
-							Secretaria do Trabalho do Ministério da Economia (1)<br>
-							Petróleo Brasileiro S/A - Petrobrás (1)<br>
-							Universidade Federal Rural de Pernambuco (1)<br>
-							Empresa de Tecnologia e Informações da Previdência -Dataprev (1)<br>
-							Instituto Federal do Paraná (1)</h5>
-							<p>As próximas etapas do processo de seleção são a realização de entrevistas, presenciais ou por videoconferência, de 4 a 8 de novembro de 2019, seguida da divulgação do resultado final no Portal do INPI, até o dia 11 de novembro de 2019.</p>
-							<div class="box bg-3">
-								<a class="button button--tamaya button--round-s button--text-thick button--border-thin" data-text="Download" href="https://github.com/pi-digital/monitoramento/raw/master/docs/Plano%20PI%20Digital%20-%20Edital%20de%20Sele%C3%A7%C3%A3o.pdf" download><span>Edital de Seleção</span></a></button>
-							</div>
-						</section>
-						<section id="section-underline-6">
-							<div class="box bg-3">
-								<a class="button button--tamaya button--round-s button--text-thick button--border-thin" data-text="Download" href="https://github.com/pi-digital/monitoramento/raw/master/docs/PI%20Digital%20-%20Controle%20de%20Riscos.xlsx" download><span>Controle de Riscos</span></a></button>
-							</div>
 						</section>
 					</div><!-- /content -->
 				</div><!-- /tabs -->
